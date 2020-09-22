@@ -1,9 +1,5 @@
-local Scene = Class{}
-
-function Scene:init() end
-function Scene:enter() end
-function Scene:exit() end
-function Scene:update(dt) end
-function Scene:render() end
+local current_folder = (...):gsub('%.Scene$', '') -- "my package path"
+local State = require(current_folder .. '.State')
+local Scene = Class{__includes = State}
 
 return Scene

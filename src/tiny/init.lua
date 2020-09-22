@@ -1,5 +1,5 @@
 --[[ 
-   tiny v0.0.1
+   tiny v0.0.2
    tiny package that provides very simple game engine features, such as:
    Colliders, animations, sprites, state machines, vectors, etc.
    Implemented using the ECS pattern
@@ -31,6 +31,8 @@ local scene = require(current_folder .. '.Scene')
 local scene_manager = require(current_folder .. '.SceneManager')
 local script = require(current_folder .. '.Script')
 local sprite = require(current_folder .. '.Sprite')
+local stack_fsm = require(current_folder .. '.StackFSM')
+local state = require(current_folder .. '.State')
 local state_machine_behaviour = require(current_folder .. '.StateMachineBehaviour')
 local vector2d = require(current_folder .. '.Vector2D')
 
@@ -51,6 +53,8 @@ local tiny = {
   SceneManager = scene_manager,
   Script = script,
   Sprite = sprite,
+  StackFSM = stack_fsm,
+  State = state,
   StateMachineBehaviour = state_machine_behaviour,
   Vector2D = vector2d
 }

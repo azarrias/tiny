@@ -1,6 +1,6 @@
 return {
   -- tiny library API
-  -- v0.0.1
+  -- v0.0.2
   tiny = {
     type = "lib",
     description = "The tiny library provides very simple game engine features.",
@@ -123,6 +123,20 @@ If 'quad' is not provided, the whole 'texture' is used instead.]],
 		args = "( texture: Image [, quad: Quad = texture] )",
 		returns = "( Sprite )",
 		valuetype = "Sprite",
+	  },
+	  StackFSM = {
+	    type = "function",
+		description = "Create and return an instance of StackFSM.",
+		args = "()",
+		returns = "( StackFSM )",
+		valuetype = "StackFSM",
+	  },
+	  State = {
+	    type = "function",
+		description = "Create and return an instance of State.",
+		args = "()",
+		returns = "( State )",
+		valuetype = "State",
 	  },
 	  StateMachineBehaviour = {
 	    type = "function",
@@ -643,33 +657,8 @@ the entity's table of Components]],
  
   Scene = {
     type = "class",
+	inherits = "State",
 	description = "Pseudo-class for Scene.",
-	childs = {
-	  enter = {
-	    type = "method",
-		description = "Execute when entering the Scene.",
-		args = "()",
-		returns = "()",
-	  },
-	  exit = {
-	    type = "method",
-		description = "Execute when exiting the Scene.",
-		args = "()",
-		returns = "()",
-	  },
-	  update = {
-	    type = "method",
-	    description = "Update the Scene.",
-		args = "( dt: decimal )",
-		returns = "()",
-	  },
-      render = {
-        type = "method",
-        description = "Render the Scene.",
-        args = "()",
-        returns = "()",
-      },
-	},
   },
 
   SceneManager = {
@@ -775,6 +764,37 @@ target Scene.]],
         description = [[Sets the Sprite texture and/or quad.
 If 'quad' is not provided, the whole 'texture' is used instead.]],
         args = "( texture: Image [, quad: Quad = texture] )",
+        returns = "()",
+      },
+	},
+  },
+  
+  State = {
+    type = "class",
+	description = "Pseudo-class for State.",
+	childs = {
+	  enter = {
+	    type = "method",
+		description = "Execute when entering the State.",
+		args = "()",
+		returns = "()",
+	  },
+	  exit = {
+	    type = "method",
+		description = "Execute when exiting the State.",
+		args = "()",
+		returns = "()",
+	  },
+	  update = {
+	    type = "method",
+	    description = "Update the State.",
+		args = "( dt: decimal )",
+		returns = "()",
+	  },
+      render = {
+        type = "method",
+        description = "Render the State.",
+        args = "()",
         returns = "()",
       },
 	},
